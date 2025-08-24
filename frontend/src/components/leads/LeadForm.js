@@ -1,10 +1,11 @@
 import axios from 'axios';
-axios.defaults.withCredentials = true;
 import React, { useState, useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import { ArrowLeft, Save, Trash2 } from 'lucide-react';
 import toast from 'react-hot-toast';
+
+axios.defaults.withCredentials = true;
 
 const LeadForm = () => {
   const { id } = useParams();

@@ -1,7 +1,8 @@
 import axios from 'axios';
-axios.defaults.withCredentials = true;
 import React, { createContext, useContext, useState, useEffect } from 'react';
 import toast from 'react-hot-toast';
+
+axios.defaults.withCredentials = true;
 
 const AuthContext = createContext();
 
