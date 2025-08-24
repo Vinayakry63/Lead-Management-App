@@ -197,7 +197,8 @@ const Dashboard = () => {
         params.append('filters', JSON.stringify(newFilters));
       }
 
-      const response = await axios.get(`/api/leads?${params}`);
+  const apiBaseUrl = process.env.REACT_APP_API_URL || '';
+  const response = await axios.get(`${apiBaseUrl}/api/leads?${params}`);
       setLeads(response.data.data);
       setPagination({
         page: response.data.page,
@@ -235,7 +236,8 @@ const Dashboard = () => {
     }
 
     try {
-      await axios.delete(`/api/leads/${leadId}`);
+  const apiBaseUrl = process.env.REACT_APP_API_URL || '';
+  await axios.delete(`${apiBaseUrl}/api/leads/${leadId}`);
       toast.success('Lead deleted successfully');
       fetchLeads(pagination.page, filters);
     } catch (error) {
@@ -493,7 +495,7 @@ const Dashboard = () => {
                   {/* Debug info for troubleshooting pagination */}
                   <div style={{marginTop: 8, color: '#b91c1c', fontSize: 12}}>
                     <strong>Debug:</strong> Page: {pagination.page}, Limit: {pagination.limit}, Total: {pagination.total}, TotalPages: {pagination.totalPages}<br/>
-                    Leads on this page: {leads.length}
+                    Leads on this page: {Array.isArray(leads) ? leads.length : 0}
                   </div>
                 </div>
 

@@ -26,7 +26,8 @@ export const AuthProvider = ({ children }) => {
 
   const checkAuthStatus = async () => {
     try {
-      const response = await axios.get('/api/auth/me');
+  const apiBaseUrl = process.env.REACT_APP_API_URL || '';
+  const response = await axios.get(`${apiBaseUrl}/api/auth/me`);
       setUser(response.data.user);
       setIsAuthenticated(true);
     } catch (error) {
@@ -39,7 +40,8 @@ export const AuthProvider = ({ children }) => {
 
   const login = async (email, password) => {
     try {
-      const response = await axios.post('/api/auth/login', { email, password });
+  const apiBaseUrl = process.env.REACT_APP_API_URL || '';
+  const response = await axios.post(`${apiBaseUrl}/api/auth/login`, { email, password });
       setUser(response.data.user);
       setIsAuthenticated(true);
       toast.success('Login successful!');
@@ -53,7 +55,8 @@ export const AuthProvider = ({ children }) => {
 
   const register = async (userData) => {
     try {
-      const response = await axios.post('/api/auth/register', userData);
+  const apiBaseUrl = process.env.REACT_APP_API_URL || '';
+  const response = await axios.post(`${apiBaseUrl}/api/auth/register`, userData);
       setUser(response.data.user);
       setIsAuthenticated(true);
       toast.success('Registration successful!');
@@ -67,7 +70,8 @@ export const AuthProvider = ({ children }) => {
 
   const logout = async () => {
     try {
-      await axios.post('/api/auth/logout');
+  const apiBaseUrl = process.env.REACT_APP_API_URL || '';
+  await axios.post(`${apiBaseUrl}/api/auth/logout`);
       setUser(null);
       setIsAuthenticated(false);
       toast.success('Logout successful!');

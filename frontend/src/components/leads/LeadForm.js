@@ -32,7 +32,8 @@ const LeadForm = () => {
 
   const fetchLead = async () => {
     try {
-      const response = await axios.get(`/api/leads/${id}`);
+  const apiBaseUrl = process.env.REACT_APP_API_URL || '';
+  const response = await axios.get(`${apiBaseUrl}/api/leads/${id}`);
       const lead = response.data.lead;
       setInitialData(lead);
       
@@ -53,10 +54,12 @@ const LeadForm = () => {
     setLoading(true);
     try {
       if (isEditing) {
-        await axios.put(`/api/leads/${id}`, data);
+  const apiBaseUrl = process.env.REACT_APP_API_URL || '';
+  await axios.put(`${apiBaseUrl}/api/leads/${id}`, data);
         toast.success('Lead updated successfully');
       } else {
-        await axios.post('/api/leads', data);
+  const apiBaseUrl = process.env.REACT_APP_API_URL || '';
+  await axios.post(`${apiBaseUrl}/api/leads`, data);
         toast.success('Lead created successfully');
       }
       navigate('/');
@@ -75,7 +78,8 @@ const LeadForm = () => {
 
     setDeleting(true);
     try {
-      await axios.delete(`/api/leads/${id}`);
+  const apiBaseUrl = process.env.REACT_APP_API_URL || '';
+  await axios.delete(`${apiBaseUrl}/api/leads/${id}`);
       toast.success('Lead deleted successfully');
       navigate('/');
     } catch (error) {
