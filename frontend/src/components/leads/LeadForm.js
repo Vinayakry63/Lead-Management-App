@@ -1,9 +1,9 @@
+import axios from 'axios';
+axios.defaults.withCredentials = true;
 import React, { useState, useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import { ArrowLeft, Save, Trash2 } from 'lucide-react';
-import axios from 'axios';
-axios.defaults.withCredentials = true;
 import toast from 'react-hot-toast';
 
 const LeadForm = () => {

@@ -1,10 +1,10 @@
+import axios from 'axios';
+axios.defaults.withCredentials = true;
 import React, { useState, useEffect, useMemo } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { AgGridReact } from 'ag-grid-react';
 import { useAuth } from '../contexts/AuthContext';
 import { Plus, LogOut, Filter, X, Search } from 'lucide-react';
-import axios from 'axios';
-axios.defaults.withCredentials = true;
 import toast from 'react-hot-toast';
 import 'ag-grid-community/styles/ag-grid.css';
 import 'ag-grid-community/styles/ag-theme-alpine.css';
