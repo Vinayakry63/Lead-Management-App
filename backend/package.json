@@ -1,0 +1,32 @@
+{
+  "name": "lead-management-backend",
+  "version": "1.0.0",
+  "description": "Backend API for Lead Management System",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js",
+    "build": "echo 'Backend is ready for deployment'",
+    "seed": "node scripts/seed.js",
+    "test:db": "node test-connection.js",
+    "debug:db": "node debug-connection.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "bcryptjs": "^2.4.3",
+    "jsonwebtoken": "^9.0.2",
+    "cookie-parser": "^1.4.6",
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
+    "mongoose": "^8.0.3",
+    "express-validator": "^7.0.1",
+    "helmet": "^7.1.0",
+    "express-rate-limit": "^7.1.5"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.2"
+  },
+  "keywords": ["express", "api", "lead-management", "jwt"],
+  "author": "Vinayak",
+  "license": "MIT"
+}
